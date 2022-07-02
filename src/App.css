@@ -3,160 +3,162 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root{
+  --Fondo: hsl(210, 29%, 25%);
+  --App: hsl(192, 15%, 97%);
+  --Titulo: hsl(210, 29%, 29%);
+  --Titulo2: hsl(192, 2%, 60%);
+  --Titulo3: hsl(184, 5%, 46%);
+  --Section: hsl(145, 61%, 59%);
+  --Icono: hsl(192, 15%, 99%);
+}
 body{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: hsl(210, 29%, 29%);
+  background: var(--Fondo);
+  font-size: 15px;
 
 }
 .App{
-  background: rgba(255, 255, 255, 0.3);
-  width: 94vh;
-  height: 60vh;
-  margin-top: 4rem;
+  margin: 30px auto;
+  width: 375px;
+  background-color: rgb(255, 255, 255, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;align-items: center;
+  border-radius: 5px;
+}
+.article{
+  width: 100%;
+  text-align: center;
+
+}
+h1{
+  color: var(--Fondo);
+  margin-top: 1em;
+  margin-bottom: 1em;
+  line-height: 2;
+  font-weight: 500;
+  
+}
+img{
+  display: block;
+  margin: auto;
+}
+button{
+  background-color: hsl(145, 61%, 59%);
+  color: white;
+  line-height: 2;
+  font-size: 1em;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+button:hover{
+  transition: all .5s;
+  color: white;
+  background-color: hsl(168, 76%, 31%);
+}
+.grados{
+  margin-top: -15px;
+  font-size: 2em;
+  color: rgb(255, 255, 255, 0.2);
+}
+.clima{
+  color: var(--Section);
+  font-size: 1.5em;
+}
+.section{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-top: 2px solid var(--Fondo);
+  margin-top: 2em;
+}
+.caja{
   display: flex;
   justify-content: center;
   align-items: center;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  border-radius: 5px;
+  flex-direction: column;
   position: relative;
+  margin-bottom: 1em;
 
 }
-.App .search{
-  text-align: center;
-  padding: 1rem;
-  position: relative;
+i{
+  color: var(--Fondo);
+  font-size: 2em;
+  margin-top: .5em;
 }
-.App input{
-  padding: .7rem 1.5rem;
-  font-size: 1.2rem;
-  border-radius: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  background: rgba(255, 255, 255, 0.1);
-  color: #f8f8f8;
-  border: none;
-  outline: none;
+h2{
+  color: rgb(255, 255, 255, 0.2);
+  font-size: 1.3em;
+  line-height: 2;
 }
-::placeholder{
-  color: #f8f8f8;
-  text-align: center;
+h3{
+  color: hsl(145, 61%, 59%);
+  font-size: 1.3em;
+  line-height: 2;
 }
-.search, i{
-  color: hsl(192, 15%, 99%);
-  margin-top: 1rem;
-  margin-left: 1.5rem;
-  font-size: 2.5rem;
-  position: absolute;
-  cursor: pointer;
+/*  ------Desktop---------*/
+@media (min-width: 1440px){
+  .App{
+    display: flex;
+    width: 740px;
+    background-color: rgb(255, 255, 255, 0.2);
+  }
+  h1{
+    color: var(--Fondo);
+    line-height: 2;
+    font-weight: 500;
+  }
+  img{
+    display: block;
+    margin: auto;
+  }
+  button{
+    background-color: hsl(145, 61%, 59%);
+    color: white;
+    line-height: 2;
+    font-size: 1em;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+  }
+  button:hover{
+    transition: all .5s;
+    color: white;
+    background-color: hsl(168, 76%, 31%);
+  }
+  .grados{
+    color: rgb(255, 255, 255, 0.2);
+    letter-spacing: 3px;
+  }
+  .section{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-top: 2px solid var(--Fondo);
+  }
+  .caja{
+    width: 20%;
+    margin: 1em;
 
-}
-.article{
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 1fr);
-  position: absolute;
-  width: 100%;
-  height: 200px;
-  top: 4rem;
-  justify-content: center;
-}
-.article button{
-  width: 50px;
-  margin: 0 auto;
-  top: -1.4rem;
-  margin-right: 019rem;
-  line-height: 2rem;
-  position: relative;
-  cursor: pointer;
-  border: none;
-}
-.article .bxs-chevron-right{
-  color: black;
-  font-size: 2rem;
-}
-.article h1, p{
-  font-size: 1.5rem;
-  font-weight: 400;
-  margin: 0 auto;
- 
-
-}
-.article h1{
-  font-weight: 600;
-  color: hsl(210, 29%, 29%);
-  line-height: 5rem;
-}
-.article .grados{
-  line-height: 1rem;
-  margin: 2rem;
-  font-size: 3rem;
-  color: hsl(192, 15%, 99%);
-  margin: 0 auto;
-  top: -3rem;
-}
-.article .clima{
-  color: hsl(37, 90%, 61%);
-  font-weight: 600;
-  margin-top: 1rem;
-}
-.article i{
-  position: relative;
-  margin: 0 auto;
-  margin-top: -1.5rem;
-  margin-right: 18rem;
-}
-.article img{
-  margin: 0 auto;
-  top: -1rem;
-  position: relative;
-}
-.section {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  height: 180px;
-  margin-top: 21rem;
-  margin-left: 1.5rem;
-  position: absolute;
-
-}
-.caja{
-  width: 195px;
-  height: 15vh;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.2);
-  margin-left: .30rem;
-  margin-right: .30rem;
-  margin-top: 2rem;
-}
-.caja h2{
-  font-size: 1rem;
-  text-align: right;
-  margin-right: 1rem;
-  margin-top: 2.5rem;
-  font-weight: 600;
-  color: hsl(210, 29%, 29%);
-  
-
-}
-.caja h3{
-  margin-right: 1rem;
-  text-align: right;
-  font-weight: 700;
-  color: hsl(37, 90%, 61%);
-}
-
-.caja i{
-  color: hsl(192, 15%, 99%);
-  margin-top: 3rem;
-  margin-left: 1.5rem;
-  font-size: 3rem;
-  position: absolute;
+  }
+  i{
+    color: var(--Fondo);
+    border-radius: 5px;
+  }
+  h2{
+    color: rgb(255, 255, 255, 0.2);
+    font-weight: 400;
+    letter-spacing: 2px;
+  }
+  h3{
+    color: hsl(145, 61%, 59%);
+  }
 }
