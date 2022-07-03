@@ -17,15 +17,11 @@ function App() {
     function success(pos) {
       let crd = pos.coords;
 
-      console.log('Your current position is:');
-      console.log('Latitude : ' + crd.latitude);
-      console.log('Longitude: ' + crd.longitude);
-      console.log('More or less ' + crd.accuracy + ' meters.');
       axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&appid=7ce6f05e8f9e52dac8156b2d0cfbdbcf`)
         .then(res => {
           setWeather(res.data)
-          const celsius = res.data.main.temp - 273.15
-          setCelcius(celsius)
+          const Celsius = Math.floor(res.data.main.temp - 273.15);
+          setCelcius(Celsius)
         })
 
     };
@@ -40,6 +36,8 @@ function App() {
 
   const convertCescius = () => {
 
+
+
     if (isFahrenheit) {
       setCelcius((Cescius * 9 / 5) + 32);
       setIsFahrenheit(false);
@@ -49,15 +47,16 @@ function App() {
       setIsFahrenheit(true);
     }
 
-
   }
+
+
   return (
     <div className="App">
 
       <div className="article">
         <h1>{weather.name}</h1>
         {weather.main ? <p className="grados">{Cescius}{setCelcius ? "C" : "F"}°</p> : null}
-        <img src={`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`} atl="" />
+        <img src={`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`} alt="description" />
 
         <button onClick={convertCescius}>Convert to Celcius</button>
       </div>
